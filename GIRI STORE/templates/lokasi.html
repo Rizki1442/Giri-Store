@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% block title %}D.soundsystem - Home{% endblock %}</title>
+  <title>{% block title %}Lokasi - GIRI STORE{% endblock %}</title>
 
   <!-- Include AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -43,7 +43,7 @@
 </head>
 
 <body>
-  <nav class="navbar p-1">
+  <nav class="navbar sticky top-0 left-0 right-0 z-50 bg-base-100">
     <div class="container mx-auto flex justify-between">
       <!-- Logo -->
       <img src="../static/img/logo.jpg" alt="Logo" class="h-12 w-12 rounded-full object-cover md:h-12 md:w-12 min-h-[36px] min-w-[36] mr-3">
@@ -51,11 +51,11 @@
       
       <!-- Navbar Links -->
       <div class="hidden lg:flex flex-grow justify-end space-x-4 text-white">
-        <a class="text-warning hover:bg-success px-3 hover:text-warning py-2 rounded-lg font-bold" href="/">Home</a>
+        <a class="hover:bg-success px-3 hover:text-warning py-2 rounded-lg font-bold" href="/">Home</a>
         <a class="hover:bg-success px-3 hover:text-warning py-2 rounded-lg font-bold" href="/#layanan">Layanan</a>
-        <a class="hover:bg-success px-3 hover:text-warning py-2 rounded-lg font-bold" href="/lokasi">Lokasi</a>
+        <a class="text-warning hover:bg-success px-3 hover:text-warning py-2 rounded-lg font-bold" href="/lokasi">Lokasi</a>
         <a class="hover:bg-success px-3 hover:text-warning py-2 rounded-lg font-bold" href="/product">Product</a>
-        <a class="hover:bg-success px-3 hover:text-warning py-2 rounded-lg font-bold" href="/kontak">Kontak</a>
+        <a class="hover:bg-success px-3 hover:text-warning py-2 rounded-lg font-bold" href="/#kontak">Kontak</a>
       </div>
   
       <!-- Dropdown for Mobile View -->
@@ -67,12 +67,12 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </label>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 rounded-box w-52 text-white font-bold bg-blue-600">
-          <li><a href="/" class="text-warning hover:bg-white ">Home</a></li>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 rounded-box w-52 text-white font-bold">
+          <li><a href="/" class="hover:bg-white hover:text-warning ">Home</a></li>
           <li><a href="/#layanan" class="hover:bg-white hover:text-warning">Layanan</a></li>
-          <li><a href="/lokasi" class="hover:bg-white hover:text-warning">Lokasi</a></li>
+          <li><a href="/lokasi" class="text-warning hover:bg-white hover:text-warning">Lokasi</a></li>
           <li><a href="/product" class="hover:bg-white hover:text-warning">Product</a></li>
-          <li><a href="/contact" class="hover:bg-white hover:text-warning">Kontak</a>
+          <li><a href="/#kontak" class="hover:bg-white hover:text-warning">Kontak</a>
           </li>
         </ul>
       </div>
@@ -83,7 +83,7 @@
   <style>
     /* Menambahkan z-index pada navbar agar tetap di atas peta */
     .navbar {
-      position: relative;
+      position: sticky;
       z-index: 50;
       /* Menempatkan navbar lebih tinggi dari peta */
     }
@@ -112,7 +112,7 @@
 
     <!-- Info Lokasi -->
     <div class="card bg-white shadow-xl rounded-lg p-4">
-      <h2 class="card-title" data-aos="fade-down">Lokasi D.soundsystem</h2>
+      <h2 class="card-title" data-aos="fade-down">Lokasi GIRI STORE</h2>
       <p class="text-sm text-gray-600" data-aos="fade-down">
         Klik marker untuk melihat detail toko
       </p>
@@ -124,10 +124,13 @@
 
   
 
-  <footer class="footer footer-center bg-base-300 text-base-content p-4">
-    <aside>
-      <p>Copyright © 2025 D.SOUNDSYSTEM</p>
-    </aside>
+   <!--footer-->
+   <footer class="footer bg-neutral text-neutral-content items-center p-4">
+    <a class="grid-flow-col items-center">
+    <img src="../static/img/logo.jpg" alt="Logo" class="h-12 w-12 rounded-full object-cover md:h-12 md:w-12 min-h-[36px] min-w-[36] mr-3">
+      <p>Copyright © 2025 GIRI STORE</p>
+    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+    </nav>
   </footer>
 
   <script src="./assets/vendor/aos/dist/aos.js"></script>
@@ -145,7 +148,7 @@
 
 <script>
   // Inisialisasi Peta dengan lokasi Purwakarta
-  var map = L.map("mapid").setView([-6.6326423, 107.5733999], 17); // Purwakarta, Indonesia
+  var map = L.map("mapid").setView([-6.5343889, 107.4539167], 17); // Purwakarta, Indonesia
 
   // Menambahkan Tile Layer dari OpenStreetMap
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -154,19 +157,19 @@
   }).addTo(map);
 
   // Lokasi Toko
-  var tokoMarker = L.marker([-6.6326423, 107.5733999])
+  var tokoMarker = L.marker([-6.5343889, 107.4539167])
     .addTo(map)
-    .bindPopup("D.soundsystem")
+    .bindPopup("GIRI STORE")
     .openPopup();
 
   // Menambahkan event listener pada marker untuk menampilkan informasi toko
   tokoMarker.on("click", function () {
     document.getElementById("location-info").innerHTML = `
-        <h3 class="font-bold text-lg" data-aos="fade-down">D.soundsystem</h3>
+        <h3 class="font-bold text-lg" data-aos="fade-down">GIRI STORE</h3>
         <p class="text-sm text-gray-600" data-aos="fade-down"></p>
-        <p class="text-sm text-gray-600 mt-2" data-aos="fade-down">Alamat: Jl. Kp. Babakan Jengkol, Kp.Serpong, Kec.Kiarapedes, Kab.Purwakarta, Jawa Barat.</p>
+        <p class="text-sm text-gray-600 mt-2" data-aos="fade-down">Jl. Ipik Gandamanah, Kp.Munjul Jaya, Kec.Purwakarta, Kab.Purwakarta, Jawa Barat.</p>
         <p class="text-sm text-gray-600 mt-2" data-aos="fade-down">Jam Operasional: 07.00 - 20.00</p>
-        <a href="https://maps.app.goo.gl/Kjf4VLynJW4yrCbW6" target="_blank" class="btn btn-primary btn-sm mt-4 font-bold" data-aos="fade-up">Kunjungi Toko</a>
+        <a href="https://maps.app.goo.gl/HULEF4GgFMfG98aZ9" target="_blank" class="btn btn-primary btn-sm mt-4 font-bold" data-aos="fade-up">Kunjungi Toko</a>
       `;
   });
 
