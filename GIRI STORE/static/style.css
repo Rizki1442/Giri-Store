@@ -17,3 +17,15 @@ body{
  .menu1 {
     background-color: dimgray;
  }
+
+ .card {
+   background-color: dimgray;
+ }
+
+ .entitas {
+   font-size: 3rem;
+ }
+
+ .W {
+   font-size: 2rem;
+ }
